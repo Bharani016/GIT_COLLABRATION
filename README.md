@@ -1,4 +1,4 @@
-# Git Collaboration Demo
+# Git Collaboration Demo - Main Branch Version
 
 A demonstration project showcasing a professional Git collaboration workflow using Git and GitHub. This repository demonstrates feature branching, pull requests, Conventional Commits, merge conflict resolution, and semantic versioning through a simple calculator application.
 
