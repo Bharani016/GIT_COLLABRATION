@@ -1,4 +1,4 @@
-# Git Collaboration Demo - Feature Branch Version
+# Git Collaboration Demo - Main Branch Version
 
 A demonstration project showcasing a professional Git collaboration workflow using Git and GitHub. This repository demonstrates feature branching, pull requests, Conventional Commits, merge conflict resolution, and semantic versioning through a simple calculator application.
 
@@ -171,11 +171,7 @@ A merge conflict occurs when two branches modify the same section of a file.
 Example conflict markers:
 
 ```text
-<<<<<<< HEAD
 Current branch changes
-=======
-Incoming branch changes
->>>>>>> feature/conflict-demo
 ```
 
 Resolution process:
