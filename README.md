@@ -171,11 +171,7 @@ A merge conflict occurs when two branches modify the same section of a file.
 Example conflict markers:
 
 ```text
-<<<<<<< HEAD
 Current branch changes
-=======
-Incoming branch changes
->>>>>>> feature/conflict-demo
 ```
 
 Resolution process:
