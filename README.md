@@ -1,4 +1,4 @@
-# Git Collaboration Demo - Main Branch Version
+# Git Collaboration Demo
 
 A demonstration project showcasing a professional Git collaboration workflow using Git and GitHub. This repository demonstrates feature branching, pull requests, Conventional Commits, merge conflict resolution, and semantic versioning through a simple calculator application.
 
@@ -166,29 +166,45 @@ Workflow:
 
 # Merge Conflict Resolution
 
-A merge conflict occurs when two branches modify the same section of a file.
+A merge conflict occurs when two branches change the same part of the same file, and Git cannot decide which version to keep.
 
-Example conflict markers:
+When this happens, Git stops the merge and writes both versions into the file, separated by special marker lines: a line of seven less-than signs, a line of seven equals signs, and a line of seven greater-than signs. The text above the equals line is your current branch. The text below it is the incoming branch.
 
-```text
-Current branch changes
-```
+## Resolution process
 
-Resolution process:
-
-1. Identify conflicting files
-2. Edit the file
-3. Remove conflict markers
-4. Keep the required code
-5. Stage the resolved file
-6. Commit the resolution
-
-Example:
+1. Run `git status` to see which files are in conflict
+2. Open each conflicted file
+3. Decide which version to keep, or combine both
+4. Delete all the marker lines
+5. Stage the resolved file with `git add <file>`
+6. Commit the result
 
 ```bash
-git add .
-git commit -m "fix: resolve merge conflict"
+git add README.md
+git commit -m "fix: resolve merge conflict in README title"
 ```
+
+## Case study: README title conflict
+
+This repository contains a real conflict that was created and resolved on purpose.
+
+| Item | Detail |
+|------|--------|
+| File | `README.md` |
+| Line | Line 1 (the project title) |
+| Branch A | `main` changed the title (`docs: update README title`) |
+| Branch B | `docs/conflict-demo` changed the same title (`test: Createing merge conflict`) |
+| Trigger | `git merge main` while on `docs/conflict-demo` |
+| Resolution | Kept one clean title, removed all markers, committed the merge |
+| Result | Pull Request #3 merged into `main` with no leftover markers |
+
+To confirm no markers remain in the project, run:
+
+```bash
+grep -rnE "^(<{7}|={7}|>{7})" . --exclude-dir=.git
+```
+
+No output means the project is clean.
 
 ---
 
